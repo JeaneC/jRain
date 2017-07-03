@@ -12,6 +12,9 @@
 		41BC346D1F09BD9E00B60AEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41BC346B1F09BD9E00B60AEC /* Main.storyboard */; };
 		41BC346F1F09BD9E00B60AEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41BC346E1F09BD9E00B60AEC /* Assets.xcassets */; };
 		41BC34721F09BD9E00B60AEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41BC34701F09BD9E00B60AEC /* LaunchScreen.storyboard */; };
+		41BC347A1F09D81200B60AEC /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 41BC34791F09D81200B60AEC /* README.md */; };
+		41BC347C1F09D84700B60AEC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 41BC347B1F09D84700B60AEC /* .gitignore */; };
+		AE4A0C2002DFFDC1DC799E37 /* Pods_jRain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89423F388791A7F0C24CA9A2 /* Pods_jRain.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,11 @@
 		41BC346E1F09BD9E00B60AEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41BC34711F09BD9E00B60AEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41BC34731F09BD9E00B60AEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41BC34791F09D81200B60AEC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		41BC347B1F09D84700B60AEC /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4D6564DD9F2A7E8A5E076340 /* Pods-jRain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jRain.release.xcconfig"; path = "Pods/Target Support Files/Pods-jRain/Pods-jRain.release.xcconfig"; sourceTree = "<group>"; };
+		89423F388791A7F0C24CA9A2 /* Pods_jRain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jRain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A19CA96440B6F5AC058DCA35 /* Pods-jRain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jRain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jRain/Pods-jRain.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE4A0C2002DFFDC1DC799E37 /* Pods_jRain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37BE8A4A34E87051CC2E9174 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89423F388791A7F0C24CA9A2 /* Pods_jRain.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		41BC345B1F09BD9E00B60AEC = {
 			isa = PBXGroup;
 			children = (
+				41BC347B1F09D84700B60AEC /* .gitignore */,
+				41BC34791F09D81200B60AEC /* README.md */,
 				41BC34661F09BD9E00B60AEC /* jRain */,
 				41BC34651F09BD9E00B60AEC /* Products */,
+				82BEB47B4F6FD4F04A14BAB5 /* Pods */,
+				37BE8A4A34E87051CC2E9174 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +85,15 @@
 			path = jRain;
 			sourceTree = "<group>";
 		};
+		82BEB47B4F6FD4F04A14BAB5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A19CA96440B6F5AC058DCA35 /* Pods-jRain.debug.xcconfig */,
+				4D6564DD9F2A7E8A5E076340 /* Pods-jRain.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 41BC34761F09BD9E00B60AEC /* Build configuration list for PBXNativeTarget "jRain" */;
 			buildPhases = (
+				93F8E7C40877A014C56F69F8 /* [CP] Check Pods Manifest.lock */,
 				41BC34601F09BD9E00B60AEC /* Sources */,
 				41BC34611F09BD9E00B60AEC /* Frameworks */,
 				41BC34621F09BD9E00B60AEC /* Resources */,
+				99B6461FFFF45417AD631525 /* [CP] Embed Pods Frameworks */,
+				3ED68A07613B49F885A12E50 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41BC347C1F09D84700B60AEC /* .gitignore in Resources */,
 				41BC34721F09BD9E00B60AEC /* LaunchScreen.storyboard in Resources */,
 				41BC346F1F09BD9E00B60AEC /* Assets.xcassets in Resources */,
 				41BC346D1F09BD9E00B60AEC /* Main.storyboard in Resources */,
@@ -132,11 +166,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3ED68A07613B49F885A12E50 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-jRain/Pods-jRain-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93F8E7C40877A014C56F69F8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		99B6461FFFF45417AD631525 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-jRain/Pods-jRain-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		41BC34601F09BD9E00B60AEC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41BC347A1F09D81200B60AEC /* README.md in Sources */,
 				41BC346A1F09BD9E00B60AEC /* ViewController.swift in Sources */,
 				41BC34681F09BD9E00B60AEC /* AppDelegate.swift in Sources */,
 			);
@@ -261,6 +344,7 @@
 		};
 		41BC34771F09BD9E00B60AEC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A19CA96440B6F5AC058DCA35 /* Pods-jRain.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3NQC4C76KE;
@@ -274,6 +358,7 @@
 		};
 		41BC34781F09BD9E00B60AEC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D6564DD9F2A7E8A5E076340 /* Pods-jRain.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3NQC4C76KE;
@@ -304,6 +389,7 @@
 				41BC34781F09BD9E00B60AEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
