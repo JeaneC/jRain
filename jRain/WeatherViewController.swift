@@ -18,9 +18,13 @@ class WeatherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     
+    var currentWeather = CurrentWeather()
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 80 //Unfortunately this is the manual way to do it, since it's bugged
+        currentWeather.downloadWeatherDetails {
+            //setup UI to load download data
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -37,6 +41,7 @@ class WeatherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
     }
+    
     
 
 
