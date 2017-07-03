@@ -8,9 +8,9 @@
 
 import Foundation
 
-let BASE_URL = "http://samples.openweathermap.org/data/2.5/weather?"
-let LATITUDE = "lat="
-let LONGITUDE = "&lon="
+let BASE_URL = "http://api.openweathermap.org/data/2.5/weather?"
+let LATITUDE = "lat=35"
+let LONGITUDE = "&lon=139"
 let APP_ID = "&appid="
 let API_KEY = "c83a45348aba34546a48fc8f928b1558"
 
