@@ -8,8 +8,9 @@
 
 import UIKit
 import Alamofire
+import CoreLocation
 
-class WeatherViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class WeatherViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var currentTempLabel: UILabel!
@@ -18,6 +19,10 @@ class WeatherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     @IBOutlet weak var currentWeatherLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    let locationManager = CLLocationManager()
+    
+    
+    var currentLocation: CLLocation!
     var currentWeather: CurrentWeather!
     var forecast: Forecast!
     var forecasts = [Forecast]()
@@ -26,14 +31,36 @@ class WeatherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         tableView.rowHeight = 80 //Unfortunately this is the manual way to do it, since it's bugged
         
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startMonitoringSignificantLocationChanges()
+        
         currentWeather = CurrentWeather()
+        
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        locationAuthStatus()
         currentWeather.downloadWeatherDetails {
             self.downloadForecastData{
-               self.updateMainUI()
+                self.updateMainUI()
             }
-            
         }
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func locationAuthStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            currentLocation = locationManager.location
+            Location.sharedInstance.lattitude = currentLocation.coordinate.latitude
+            Location.sharedInstance.longitude = currentLocation.coordinate.longitude
+            print(currentLocation.coordinate.latitude, currentLocation.coordinate.longitude)
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+            locationAuthStatus()
+        }
     }
 
     override func didReceiveMemoryWarning() {

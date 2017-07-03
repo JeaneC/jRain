@@ -20,4 +20,6 @@ V 0.40 - The top UI now loads well for a pre-loaded city (this will change to ge
 
 V 0.80 - The app now imports all the data it needs, only thing left is to actually use the data to change label descriptions.
 
-V 0.90 - Created the WeatherTableViewCell file. Tweaked Constants file. Label descriptions now update properyl, but we actually need to do one more thing, which is to allow the weather app to take in geo-coordinates and give data on any location.
+V 0.90 - Created the WeatherTableViewCell file. Tweaked Constants file. Label descriptions now update properly, but we actually need to do one more thing, which is to allow the weather app to take in geo-coordinates and give data on any location.
+
+V 1.00 - App is now fully fuctional!
