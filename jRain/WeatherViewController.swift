@@ -29,21 +29,27 @@ class WeatherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 80 //Unfortunately this is the manual way to do it, since it's bugged
+        tableView.rowHeight = 80 //Unfortunately this is the manual way to do it since changing the rowHeight settings in the storyboard is bugged as of XCode 8.3.3
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startMonitoringSignificantLocationChanges()
-        
         currentWeather = CurrentWeather()
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        locationAuthStatus()
+        self.downloadAndUpdate()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.downloadAndUpdate()
+    }
+    
+    func downloadAndUpdate() {
+        forecasts.removeAll(keepingCapacity: true) //This is to reset the list
+        locationAuthStatus() //Methods should come after this because we need the coordinates to do something
         currentWeather.downloadWeatherDetails {
             self.downloadForecastData{
                 self.updateMainUI()
@@ -53,10 +59,12 @@ class WeatherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     func locationAuthStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            currentLocation = locationManager.location
+            if let currentLocation = locationManager.location { //In case the location doesn't work
             Location.sharedInstance.lattitude = currentLocation.coordinate.latitude
             Location.sharedInstance.longitude = currentLocation.coordinate.longitude
-            print(currentLocation.coordinate.latitude, currentLocation.coordinate.longitude)
+            } else {
+                print("Tap to refresh")
+            }
         } else {
             locationManager.requestWhenInUseAuthorization()
             locationAuthStatus()
@@ -97,7 +105,7 @@ class WeatherViewController: UIViewController,UITableViewDelegate, UITableViewDa
                         let forecast = Forecast(weatherDict: obj)
                         self.forecasts.append(forecast)
                     }
-                    self.forecasts.remove(at: 0)
+                    self.forecasts.remove(at: 0) //The list doesn't need to start with today
                     self.tableView.reloadData()
                 }
             }

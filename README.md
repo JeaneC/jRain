@@ -23,3 +23,5 @@ V 0.80 - The app now imports all the data it needs, only thing left is to actual
 V 0.90 - Created the WeatherTableViewCell file. Tweaked Constants file. Label descriptions now update properly, but we actually need to do one more thing, which is to allow the weather app to take in geo-coordinates and give data on any location.
 
 V 1.00 - App is now fully fuctional!
+
+V 2.00 - Added code to prevent crashing if the location service isn't working. The app now refreshes data if the user taps the screen. Refactored repetitive code. Added some comments.

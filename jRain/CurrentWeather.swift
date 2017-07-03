@@ -17,14 +17,14 @@ class CurrentWeather {
     
     var cityName: String {
         if _cityName == nil {
-            _cityName = "New York"
+            _cityName = "--"
         }
         return _cityName
     }
     
     var date: String {
         if _date == nil {
-            _date = ""
+            _date = "--"
         }
         
         let dateFormatter = DateFormatter()
@@ -38,14 +38,14 @@ class CurrentWeather {
     
     var weatherType: String {
         if _weatherType == nil {
-            _weatherType = "Unknown"
+            _weatherType = "--"
         }
         return _weatherType
     }
     
     var currentTemp: Double {
         if _currentTemp == nil {
-            _currentTemp = 10.0
+            _currentTemp = 0.0
         }
         return _currentTemp
     }
@@ -68,9 +68,7 @@ class CurrentWeather {
                 }
                 if let main = dict["main"] as? Dictionary<String, AnyObject> {
                     if let currentTemperature = main["temp"] as? Double {
-                        let kelvinToFar = (currentTemperature * (9/5) - 459.67)
-                        let kelvinToFar2 = Double(round(10 * kelvinToFar/10))
-                        self._currentTemp = kelvinToFar2
+                        self._currentTemp = convertToFarFromKelvin(far: currentTemperature)
                     }
                     
                 }
