@@ -15,15 +15,17 @@ class WeatherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var currentWeatherIcon: UIImageView!
     @IBOutlet weak var currentWeatherLabel: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
     
     var currentWeather = CurrentWeather()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 80 //Unfortunately this is the manual way to do it, since it's bugged
+        
+        currentWeather = CurrentWeather()
         currentWeather.downloadWeatherDetails {
-            //setup UI to load download data
+            self.updateMainUI()
         }
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -42,6 +44,17 @@ class WeatherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         return 6
     }
     
+    func updateMainUI() {
+        dateLabel.text = currentWeather.date
+        print(dateLabel.text)
+        currentTempLabel.text = String(currentWeather.currentTemp)
+        print(currentTempLabel.text)
+        currentWeatherLabel.text = currentWeather.weatherType
+        print(currentWeatherLabel.text)
+        locationLabel.text = currentWeather.cityName
+        print(locationLabel.text)
+        currentWeatherIcon.image = UIImage(named: currentWeather.weatherType)
+    }
     
 
 
