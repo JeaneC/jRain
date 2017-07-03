@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class WeatherViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
@@ -17,7 +18,9 @@ class WeatherViewController: UIViewController,UITableViewDelegate, UITableViewDa
     @IBOutlet weak var currentWeatherLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var currentWeather = CurrentWeather()
+    var currentWeather: CurrentWeather!
+    var forecast: Forecast!
+    var forecasts = [Forecast]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +28,10 @@ class WeatherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         currentWeather = CurrentWeather()
         currentWeather.downloadWeatherDetails {
-            self.updateMainUI()
+            self.downloadForecastData{
+               self.updateMainUI()
+            }
+            
         }
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -44,15 +50,29 @@ class WeatherViewController: UIViewController,UITableViewDelegate, UITableViewDa
         return 6
     }
     
+    func downloadForecastData(completed: @escaping DownloadComplete) {
+        // Download forecast weather data for TableView
+        
+        Alamofire.request(FORECAST_URL).responseJSON { response in
+            let result = response.result
+            
+            if let dict = result.value as? Dictionary<String, AnyObject> {
+                if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
+                    for obj in list {
+                        let forecast = Forecast(weatherDict: obj)
+                        self.forecasts.append(forecast)
+                    }
+                }
+            }
+            completed()
+        }
+    }
+    
     func updateMainUI() {
         dateLabel.text = currentWeather.date
-        print(dateLabel.text)
         currentTempLabel.text = String(currentWeather.currentTemp)
-        print(currentTempLabel.text)
         currentWeatherLabel.text = currentWeather.weatherType
-        print(currentWeatherLabel.text)
         locationLabel.text = currentWeather.cityName
-        print(locationLabel.text)
         currentWeatherIcon.image = UIImage(named: currentWeather.weatherType)
     }
     

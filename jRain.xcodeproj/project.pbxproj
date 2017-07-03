@@ -16,6 +16,7 @@
 		41BC347C1F09D84700B60AEC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 41BC347B1F09D84700B60AEC /* .gitignore */; };
 		41BC347E1F0A723E00B60AEC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC347D1F0A723E00B60AEC /* Constants.swift */; };
 		41BC34801F0A73D300B60AEC /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC347F1F0A73D300B60AEC /* CurrentWeather.swift */; };
+		41BC34821F0AA3B900B60AEC /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC34811F0AA3B900B60AEC /* Forecast.swift */; };
 		AE4A0C2002DFFDC1DC799E37 /* Pods_jRain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89423F388791A7F0C24CA9A2 /* Pods_jRain.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		41BC347B1F09D84700B60AEC /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		41BC347D1F0A723E00B60AEC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		41BC347F1F0A73D300B60AEC /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		41BC34811F0AA3B900B60AEC /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		4D6564DD9F2A7E8A5E076340 /* Pods-jRain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jRain.release.xcconfig"; path = "Pods/Target Support Files/Pods-jRain/Pods-jRain.release.xcconfig"; sourceTree = "<group>"; };
 		89423F388791A7F0C24CA9A2 /* Pods_jRain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jRain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19CA96440B6F5AC058DCA35 /* Pods-jRain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jRain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jRain/Pods-jRain.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				41BC34731F09BD9E00B60AEC /* Info.plist */,
 				41BC347D1F0A723E00B60AEC /* Constants.swift */,
 				41BC347F1F0A73D300B60AEC /* CurrentWeather.swift */,
+				41BC34811F0AA3B900B60AEC /* Forecast.swift */,
 			);
 			path = jRain;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				41BC34801F0A73D300B60AEC /* CurrentWeather.swift in Sources */,
 				41BC346A1F09BD9E00B60AEC /* WeatherViewController.swift in Sources */,
 				41BC34681F09BD9E00B60AEC /* AppDelegate.swift in Sources */,
+				41BC34821F0AA3B900B60AEC /* Forecast.swift in Sources */,
 				41BC347E1F0A723E00B60AEC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
